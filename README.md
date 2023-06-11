@@ -1,23 +1,24 @@
-store_app
+# README
 
-An online store app that allows users to browse and purchase products or services from variety of vendors.
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-The app includes features such as
+Things you may want to cover:
 
-    product search,
-    shopping cart,
-    payment processing,
-    order tracking.
+* Ruby version
 
-Users can create accounts, save payments and shipping information, also receive notifications about sales and promotions.
+* System dependencies
 
-Aplikacja sklepu internetowego umożliwiająca użytkownikom przeglądanie i zakup produktów lub usług od różnycyh sprzedawców.
+* Configuration
 
-Aplikacja obejmuje funkcje takie jak:
+* Database creation
 
-    wyszukiwanie produktów,
-    koszyk,
-    przetwarzanie płatności,
-    śledzenie zamówień.
+* Database initialization
 
-Użytkownicy mogą tworzyć konta, zapisywać informacje o płatnościach i wysyłce oraz otrzymywać powiadomienia o sprzedażach i promocjach.
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
