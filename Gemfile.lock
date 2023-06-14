@@ -69,10 +69,6 @@ GEM
     addressable (2.8.4)
       public_suffix (>= 2.0.2, < 6.0)
     bcrypt (3.1.18)
-    better_errors (2.10.0)
-      erubi (>= 1.0.0)
-      rack (>= 0.9.0)
-      rouge (>= 1.0.0)
     bindex (0.8.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
@@ -101,6 +97,9 @@ GEM
       responders
       warden (~> 1.2.3)
     erubi (1.12.0)
+    ffi (1.15.5-x64-mingw-ucrt)
+    font-awesome-sass (6.4.0)
+      sassc (~> 2.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
     i18n (1.14.1)
@@ -183,8 +182,9 @@ GEM
       actionpack (>= 5.2)
       railties (>= 5.2)
     rexml (3.2.5)
-    rouge (4.1.2)
     rubyzip (2.3.2)
+    sassc (2.4.0)
+      ffi (~> 1.9)
     selenium-webdriver (4.10.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
@@ -232,12 +232,12 @@ PLATFORMS
   x64-mingw-ucrt
 
 DEPENDENCIES
-  better_errors (~> 2.9, >= 2.9.1)
   bootsnap
   capybara
   cssbundling-rails
   debug
   devise
+  font-awesome-sass (~> 6.4.0)
   jbuilder
   jsbundling-rails
   pg

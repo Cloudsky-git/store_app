@@ -3,11 +3,24 @@
     <div class="col-12 pt-3 pb-3 mb-4 border-bottom">
       <div class="float-end">
         <% if user_signed_in? %>
-          <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-outline-primary" %>
-        <% else %>
-          <%= link_to "Log In", new_user_session_path, class: "btn btn-outline-primary" %>
-          <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-outline-primary" %>       
-        <% end %>
+          <% if current_user.admin? %>
+            Account: <b class="text-uppercase"><%= current_user.role %></b>. There are <%= User.count %>  users in the system.</p>
+          <% end %>        
+          <div class="dropdown show float-end">
+            <a class="btn btn-white dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Hello <%= current_user.full_name %>!
+            </a>
+            <a class="btn btn-white" href="#" role="button">CART</a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">        
+              <%= link_to "Profile", "", class: "dropdown-item" %>
+              <%= link_to "Settings", edit_user_registration_path, class: "dropdown-item" %> 
+              <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            </div>
+          </div>          
+          <% else %>
+            <%= link_to "Log In", new_account_session_path, class: "btn btn-outline-primary" %>
+            <%= link_to "Sign Up", new_account_registration_path, class: "btn btn-outline-primary" %>
+          <% end %>         
       </div>
       <p class="h3"> Online Store </p>
     </div>
