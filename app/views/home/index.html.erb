@@ -28,15 +28,15 @@
       Left col
     </div>
     <div class="col-4">
-      <p class="h5 mb-3">Active and future Promotions
+      <p class="h5 mb-3">Product Categories</p>
     <div class="card">
-      <ul class="list-group list-group-flush">     
-        <li class="list-group-item">First test option</li>
-        <li class="list-group-item">Second test option</li>
-        <li class="list-group-item">Third test option</li>
+      <ul class="list-group list-group-flush">    
+        <% @categories.each do |category| %> 
+          <li class="list-group-item"><%= link_to category.name, category_path(category) %></li>
+        <% end %>
       </ul>
     </div>
-      <%= link_to "View all", "", class: "btn btn-primary mt-3" %>
+      <%= link_to "View all", categories_path, class: "btn btn-primary mt-3" %>
     </div>
   </div>
 </div>

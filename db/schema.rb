@@ -14,6 +14,28 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_15_081545) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "total_products"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.bigint "category_id"
+    t.text "description"
+    t.string "title"
+    t.integer "availability"
+    t.string "color"
+    t.string "size"
+    t.string "country_of_manufacture"
+    t.integer "total_count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_products_on_category_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"

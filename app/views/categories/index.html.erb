@@ -1,0 +1,22 @@
+<% if user_signed_in? %> <%# MA BYĆ ADMIN ALE JESZCZE W REVIEW USER ROLE :) %>
+  <div class="float-end">
+    <%= link_to "Add new category", new_category_path, class: "btn btn-primary" %> 
+  </div>
+<% end %>
+
+<div class="container">   
+  <% if @categories.size > 0 %>
+    <div class="col-8">
+      <% @categories.each do |category| %>
+        <div class="card mt-2">
+          <h3 class="mt-2 p-2"><%= link_to category.name, category %></h3>
+          <span class="p-2"><%= simple_format category.description %></span>
+        </div>
+      <% end %>
+    </div>
+  <% else %>  
+    <div class="col-6">
+      <p>No categories to display.</p>
+    </div>
+  <% end %>
+</div>
