@@ -1,12 +1,12 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_category, only: [ :show]
 
   def index 
     @categories = Category.all
   end
 
   def show 
+    @category = Category.find(params[:id])
     @products = @category.products
   end
 
@@ -19,7 +19,7 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category = Category.new category_values
+    @category = Category.new category_params
 
     if @category.save 
       redirect_to categories_path
@@ -30,11 +30,7 @@ class CategoriesController < ApplicationController
 
   private 
 
-  def set_category
-    @category = Category.find(params[:id])
-  end
-
-  def category_values 
+  def category_params 
     params.require(:category).permit(:name, :description)
   end
 

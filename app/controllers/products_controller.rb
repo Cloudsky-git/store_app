@@ -1,12 +1,12 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [ :index, :show ]
-  before_action :set_product, only: [:show] 
 
   def index
     @posts = Post.all
   end
 
   def show
+    @product = Product.find(params[:id])
   end
 
   def new 
@@ -15,8 +15,8 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new product_values
-    @product.category_id = params[:category_id]
+    @category = Category.find(params[:category_id])
+    @category.products.new(product_params)
 
     if @product.save 
       redirect_to categories_path(@product.category_id)
@@ -28,11 +28,7 @@ class ProductsController < ApplicationController
 
   private 
 
-  def set_product
-    @product = Product.find(params[:id])
-  end
-
-  def product_values 
+  def product_params 
     params.require(:product).permit(:title, :description)
   end
 end
