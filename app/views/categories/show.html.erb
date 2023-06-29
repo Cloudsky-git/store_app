@@ -1,0 +1,15 @@
+
+<div class="container">
+  <div class="col-12">
+    <%= link_to "Add new product", new_category_product_path(@category), class: "btn btn-primary float-end" %> <%# MA BYĆ ADMIN ALE JESZCZE W REVIEW USER ROLE :) %>
+  </div>
+  <div class="col-6">
+    <%= @category.name %>
+
+    <% @products.each do |product| %>
+      <h5 class="mt-2"><%= link_to product.title, category_product_path(@category, product) %></h5>
+      <p><%= truncate product.description, length: 200 %></p>
+    <% end %>
+    <p><%= simple_format @category.description %></p>
+  </div>
+</div>
