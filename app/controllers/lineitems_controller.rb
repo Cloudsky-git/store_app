@@ -21,7 +21,7 @@ class LineItemsController < ApplicationController
   def add_quantity 
     @line_item = LineItem.find(params[:id])
     @line_item.quantity += 1
-    @line_item.after_save
+    @line_item.save
     redirect_to cart_path(@current_cart)
   end
 

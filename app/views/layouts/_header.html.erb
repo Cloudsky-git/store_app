@@ -23,7 +23,21 @@
           <% end %>         
       </div>
       <p class="h3"><%= link_to "Online Store", root_path %></p>
-      
+    <nav class="navbar navbar-expand-lg">
+      <%= link_to "CATEGORIES", categories_path, class: "navbar-brand" %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <% all_categories.each do |category| %> 
+            <%= link_to category.name, category_path(category), class: "nav-item nav-link active" %><span class="sr-only">(current)</span>
+          <% end %>
+            <%= link_to "View all", categories_path, class: "nav-item nav-link active" %>
+        </div>
+      </div>
+    </nav>
+      </div>
     </div>
     </div>
   </div>
