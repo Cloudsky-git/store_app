@@ -11,7 +11,6 @@ class CategoriesController < ApplicationController
   end
 
   def add 
-
   end
 
   def new 
