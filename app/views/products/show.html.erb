@@ -1,6 +1,13 @@
-<p>Name: <%= @product.title %>; unit price of <%= number_to_currency(@product.price) %></p>
-<p>
-  <%= link_to "Edit", edit_category_product_path(@product), class: "btn btn-secondary" %>
-  <%= link_to "Delete", category_product_path(@product), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-secondary" %>
-  <%= button_to "Add to cart", line_items_path(:product_id => @product.id), class: "btn btn-secondary" %>
-</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <p>Name: <%= @product.title %>; unit price of <%= number_to_currency(@product.price) %></p>
+      <%= link_to "Edit", edit_category_product_path(@category, @product), class: "btn btn-secondary " %>
+      <%= button_to "Delete", category_product_path(@category, @product), method: :delete, class: "btn btn-danger mt-1" %>
+      <%#  data: { turbo_method: :delete, turbo_confirm: "Are you sure?" %>
+      <%= button_to "Add to cart", line_items_path(:product_id => @product.id), class: "btn btn-primary mt-1" %>
+    </div>
+  </div>
+  
+</div>

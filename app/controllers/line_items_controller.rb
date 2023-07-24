@@ -9,20 +9,21 @@ class LineItemsController < ApplicationController
       @line_item = current_cart.line_items.find_by(:product_id => chosen_product)
       @line_item.quantity += 1
     else
-      @line_item = LineItem.new
-      @line_item.cart = current_cart
-      @line_item.product = chosen_product
+      @line_item = current_cart.line_items.new(product: chosen_product, quantity: 1)
+      # @line_item = LineItem.new
+      # @line_item.cart = current_cart
+      # @line_item.product = chosen_product
     end
 
-    @line_item.save
+    @line_item.save!
     redirect_to cart_path(@current_cart)
   end
 
   def add_quantity 
     @line_item = LineItem.find(params[:id])
     @line_item.quantity += 1
-    @line_item.save
-    redirect_to cart_path(@current_cart)
+    @line_item.save!
+    redirect_to cart_path(current_cart)
   end
 
   def reduce_quantity
@@ -30,8 +31,8 @@ class LineItemsController < ApplicationController
     if @line_item.quantity > 1 
       @line_item.quantity -= 1
     end
-    @line_item.save 
-    redirect_to cart_path(@current_cart)
+    @line_item.save!
+    redirect_to cart_path(current_cart)
   end
 
   def destroy 
