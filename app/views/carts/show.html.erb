@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-6">
+    <h2>Cart</h2>
+  </div>
+</div>
+  <% @cart.line_items.each do |line_item| %>
+<div class="row">
+  <div class="col-6 py-2">
+    <h5>Item: <%= line_item.product.title %> </h5>Price: <%= number_to_currency(line_item.product.price)%> Quantity: <%= line_item.quantity %>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <%= button_to "Add one", line_item_add_path(:id => line_item), method: :post, class: "btn btn-secondary" %>
+      <%= link_to "Reduce one", line_item_reduce_path(:id => line_item), method: :post, class: "btn btn-danger" %>
+    </div>
+  </div>
+</div>
+<% end %>
+<div class="col-4 mt-2">
+  <h3>Sub total: <%= number_to_currency(@cart.sub_total) %></h3>         
+  <%= link_to "Proceed to checkout", new_order_path %><br>
+  <%= button_to "Empty cart", cart_path(@current_cart), method: :delete, class: "btn btn-danger" %>
+</div>

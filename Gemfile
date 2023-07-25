@@ -35,6 +35,8 @@ gem "jbuilder"
 
 gem 'devise'
 
+gem "font-awesome-sass", "~> 6.4.0"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -62,6 +64,8 @@ group :development, :test do
 end
 
 group :development do
+  gem 'better_errors', '~> 2.9', '>= 2.9.1'
+  gem "binding_of_caller"
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
   

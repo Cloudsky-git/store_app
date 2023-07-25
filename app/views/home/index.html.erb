@@ -1,23 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="row">
-      <div class="col">
-        <p class="h4">Trending Today</p>
-      </div>
-    </div>
-    <div class="col-sm-3">
-      Popular #1
-    </div>
-    <div class="col-sm-3">
-      Popular 2
-    </div>
-    <div class="col-sm-3">
-      Popular 3
-    </div>
-    <div class="col-sm-3">
-      Popular 4
-    </div>
-  </div>
+</div>
   <div class="row mt-4">
     <div class="col">
       <p class="h4">Popular Products</p>
@@ -27,16 +10,7 @@
     <div class="col-8">
       Left col
     </div>
-    <div class="col-4">
-      <p class="h5 mb-3">Product Categories</p>
-    <div class="card">
-      <ul class="list-group list-group-flush">    
-        <% @categories.each do |category| %> 
-          <li class="list-group-item"><%= link_to category.name, category_path(category) %></li>
-        <% end %>
-      </ul>
-    </div>
-      <%= link_to "View all", categories_path, class: "btn btn-primary mt-3" %>
+      
     </div>
   </div>
 </div>
